@@ -275,11 +275,10 @@ def encoding_sentence(english_sentence):
             space_count+=1
         else:
             if space_count >= 1:
-                english_list.append(" ")
+                english_list.append("")
             space_count = 0
             english_list.append(eng)
-    print(english_list)
-    return ' '.join([encoding_character(alpha) if alpha != ' ' else alpha for alpha in english_list]).strip()
+    return ' '.join([encoding_character(alpha) if alpha != '' else alpha for alpha in english_list]).strip()
     # ==================================
 
 
