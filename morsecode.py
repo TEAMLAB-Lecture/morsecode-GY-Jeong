@@ -89,15 +89,8 @@ def is_validated_english_sentence(user_input):
     """
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당 또는 필요에 따라 자유로운 수정
-    check_str_1 = "_@#$%^&*()-+=[]}{\"\';:\|`~0123456789"
-    check_str_2 = ".,!?"
-    check_int = 0
-    for c in user_input:
-        if c in check_str_1:
-            return False
-        if c not in check_str_2:
-            check_int += 1
-    return check_int > 0
+    check_str = "[_@#$%^&*()-+=[]}{\"\';:\|`~0123456789]"
+    return re.search(check_str, user_input) != None or re.sub('[,.!?]', '', user_input).replace(" ", "") != ""
     # ==================================
 
 
